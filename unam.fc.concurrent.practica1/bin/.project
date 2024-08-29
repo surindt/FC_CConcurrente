@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>unam.fc.concurrent.practica2</name>
+	<name>unam.fc.concurrent.practica1</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1723749128076</id>
+			<id>1722892850818</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
