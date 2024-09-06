@@ -1,6 +1,6 @@
 package unam.fc.concurrent.practica3;
 import java.util.concurrent.atomic.*;
-//Programa 8: Lamport's algorithm
+//Programa 5: Lamport's algorithm Unbounded
 
 import unam.fc.concurrent.practica3.Nodo;
 

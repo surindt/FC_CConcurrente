@@ -1,6 +1,6 @@
 package unam.fc.concurrent.practica3;
 //Programa 3: Programa que ejecuta la clase Peterson, todas las variables utilizan volatile
-
+// Utiliza la clase CounterNaive
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
