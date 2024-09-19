@@ -1,0 +1,18 @@
+Program 1 (CounterAtomic): Contador linealizable no bloqueante, utiliza primitivas: getAndIncrement y get
+Program 2 (RunSpin): Programa 2: Programa para medir el tiempo de: 
+    -		Lock lock = new TASLock();
+    -		Lock lock = new TTASLock();
+    -		Lock lock = new BackoffLock();
+    -		Lock lock = new MCSLock();
+    -		Lock lock = new ALock(numberThreads);
+    -		Lock lock = new ReentrantLock();
+    -		Lock lock = new CLHLock();
+    -		CounterAtomic (No necesita candados, ya es consistente)
+
+    Implementaciones de SpinLocks: 
+    -   TASLock();
+    -	MCSLock();
+    -	TTASLock();
+    -	BackoffLock();
+    -	ALock(numberThreads);
+    -	CLHLock();

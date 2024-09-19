@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class VolatileExample1 {
-	volatile static Boolean flag = false;
+	static Boolean flag = false;
 	
 	private static void read() {
 		
