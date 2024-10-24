@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import unam.fc.concurrent.practica4.*;
 
 /*
 Programa 2: Programa para medir el tiempo de: 
@@ -44,10 +45,10 @@ public class RunSpin {
 		int numberThreads = 11;
 		ExecutorService executor = Executors.newFixedThreadPool(numberThreads);
 //		CounterAtomic counter = new CounterAtomic(); // Descomentar para probar el contador atomico
-		Lock lock = new TASLock();
+//		Lock lock = new TASLock();
 //		Lock lock = new TTASLock();
 //		Lock lock = new BackoffLock();
-//		Lock lock = new MCSLock();
+		Lock lock = new MCSLock();
 //		Lock lock = new ALock(numberThreads);
 //		Lock lock = new ReentrantLock();
 //		Lock lock = new CLHLock();
