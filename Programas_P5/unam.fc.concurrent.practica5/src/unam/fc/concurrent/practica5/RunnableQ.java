@@ -29,9 +29,9 @@ public class RunnableQ<T> implements Runnable{
             	String string = String.format("enq( %s )", this.item);
             	snapshotI.update(string);//En el ssI se guardan las invocaciones 
             	
-            	Boolean res = this.queue.add(this.item);
+            	Boolean res = this.queue.add(this.item); // Aplico la operacion de la queue
             	
-            	Object[] result  = (T[]) snapshotI.scan();
+            	Object[] result  = (T[]) snapshotI.scan(); // Tomo la foto de las invs escritas
             	Stream<Object> stream = Arrays.stream(result); 
             	String scan = stream.map( n -> n.toString() )
                 .collect( Collectors.joining( " + " ) );
@@ -40,7 +40,7 @@ public class RunnableQ<T> implements Runnable{
             }
             if (this.num == 1) {//Probabilidad de 50/100 de ejecutar deq
             	snapshotI.update("deq()");
-            	T res = (T) this.queue.poll();
+            	T res = (T) this.queue.poll(); // Regresa null o el valor entero
             	
             	Object[] result  = (T[]) snapshotI.scan();
             	Stream<Object> stream = Arrays.stream(result); 

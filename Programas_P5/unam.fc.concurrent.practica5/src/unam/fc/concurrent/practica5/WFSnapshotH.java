@@ -12,8 +12,8 @@ public class WFSnapshotH<T> implements Snapshot<T> {
 	    int me = ThreadID.get();
 	    T[] snap1 = this.scan();
 	    StampedSnapH<T> oldValue = a_table[me];
-	    oldValue.snap.add(snap1);
-	    oldValue.values.add(value);
+	    oldValue.snap.add(snap1); // Guardar el conjunto de snaps
+	    oldValue.values.add(value); // Guardar el conjunto de valores hechos
 	    StampedSnapH<T> newValue =
 	      new StampedSnapH<T>(oldValue.stamp+1, value, oldValue.snap, oldValue.values);
 	    a_table[me] = newValue;
@@ -46,7 +46,7 @@ public class WFSnapshotH<T> implements Snapshot<T> {
 	      // clean collect
 	      T[] result = (T[]) new Object[a_table.length];
 	      for (int j = 0; j < a_table.length; j++)
-	        result[j] = (T) newCopy[j].values;
+	        result[j] = (T) newCopy[j].values; // Regreso el conjunto de valores
 	      return result;
 	    }
 	  }

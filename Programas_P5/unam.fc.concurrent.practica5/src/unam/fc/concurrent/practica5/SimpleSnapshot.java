@@ -27,6 +27,7 @@ public class SimpleSnapshot<T> implements Snapshot<T> {
   public void update(T value) {
     int me = ThreadID.get();
     StampedValue<T> oldValue = a_table[me];
+    //oldValue.values.add(value); // Guardar el conjunto de valores hechos
     StampedValue<T> newValue =
         new StampedValue<T>((oldValue.stamp)+1, value);
     a_table[me] = newValue;
