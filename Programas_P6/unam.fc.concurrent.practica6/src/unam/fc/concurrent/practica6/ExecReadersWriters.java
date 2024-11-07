@@ -6,18 +6,22 @@ package unam.fc.concurrent.practica6;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class ExecReadersWriters {
     int counter = 0;
+    static AtomicInteger counterWriters = new AtomicInteger(0);
+    static AtomicInteger counterReaders = new AtomicInteger(0);
     private static void taskR(FifoReadWriteLock rw) {//Runnable para el lock Read
         String threadName = Thread.currentThread().getName();//Obtenemos el nombre del hilo
 		try {
 			rw.readLock().lock();
             System.out.println("Running Reader Thread En: " + threadName);
-            
+            System.out.println(counterReaders.incrementAndGet());
 		}finally {
             rw.readLock().unlock();	
+            System.out.println(counterReaders.decrementAndGet());
             System.out.println("Running Reader Thread - Salio: " + threadName);
 			
             
@@ -29,9 +33,10 @@ public class ExecReadersWriters {
 		try {
 			rw.writeLock().lock();	
             System.out.println("Running Writer Thread En: " + threadName);
-            
+            //System.out.println(counterWriters.incrementAndGet());// Mas de un writer en la SC?
 		}finally {
             rw.writeLock().unlock();	
+            //System.out.println(counterWriters.decrementAndGet());
             System.out.println("Running Writer Thread - Salio: " + threadName);          
 		}
 	}

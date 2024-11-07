@@ -53,7 +53,7 @@ public class FifoReadWriteLock implements ReadWriteLock {
       metaLock.lock();
       try {
         
-        System.out.println("Lock ReadAcquires: " + readAcquires + " ReadReleases: " + readReleases);
+        //System.out.println("Lock ReadAcquires: " + readAcquires + " ReadReleases: " + readReleases);
         
         while (writer) {
           try {
@@ -63,7 +63,7 @@ public class FifoReadWriteLock implements ReadWriteLock {
           }
           
         }
-        System.out.println("Writer: " + writer);
+        //System.out.println("Writer: " + writer);
         readAcquires++;
       } finally {
         metaLock.unlock();
@@ -73,7 +73,7 @@ public class FifoReadWriteLock implements ReadWriteLock {
       metaLock.lock();
       try {
         readReleases++;
-        System.out.println("Unlock ReadAcquires: " + readAcquires + " ReadReleases: " + readReleases);
+        //System.out.println("Unlock ReadAcquires: " + readAcquires + " ReadReleases: " + readReleases);
 
         if (readAcquires == readReleases)
           condition.signalAll();
@@ -113,7 +113,7 @@ public class FifoReadWriteLock implements ReadWriteLock {
             condition.await();
           } catch (InterruptedException e) {}
         
-        System.out.println("Writer: " + writer);
+        //System.out.println("Writer: " + writer);
 
       } finally {
         metaLock.unlock();
@@ -122,7 +122,7 @@ public class FifoReadWriteLock implements ReadWriteLock {
     public void unlock() {
       
       writer = false;
-      System.out.println("Writer: " + writer);
+      //System.out.println("Writer: " + writer);
     }
     public void lockInterruptibly() throws InterruptedException {
       throw new UnsupportedOperationException();
